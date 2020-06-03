@@ -1,8 +1,8 @@
 package application
 
 import (
-	"food-app/domain/entity"
 	"github.com/stretchr/testify/assert"
+	"learnDDD/domain/entity"
 	"testing"
 )
 

@@ -2,9 +2,9 @@ package persistence
 
 import (
 	"fmt"
-	"food-app/domain/entity"
 	"github.com/jinzhu/gorm"
 	"github.com/joho/godotenv"
+	"learnDDD/domain/entity"
 	"log"
 	"os"
 )
@@ -24,7 +24,7 @@ func DBConn() (*gorm.DB, error) {
 //Circle CI DB
 func CIBuild() (*gorm.DB, error) {
 	var err error
-	DBURL := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", "127.0.0.1", "5432", "steven", "food-app-test", "password")
+	DBURL := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", "127.0.0.1", "5432", "steven", "learnDDD-test", "password")
 	conn, err := gorm.Open("postgres", DBURL)
 	if err != nil {
 		log.Fatal("This is the error:", err)

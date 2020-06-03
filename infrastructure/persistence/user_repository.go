@@ -2,11 +2,11 @@ package persistence
 
 import (
 	"errors"
-	"food-app/domain/entity"
-	"food-app/domain/repository"
-	"food-app/infrastructure/security"
 	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"
+	"learnDDD/domain/entity"
+	"learnDDD/domain/repository"
+	"learnDDD/infrastructure/security"
 	"strings"
 )
 
@@ -17,6 +17,7 @@ type UserRepo struct {
 func NewUserRepository(db *gorm.DB) *UserRepo {
 	return &UserRepo{db}
 }
+
 //UserRepo implements the repository.UserRepository interface
 var _ repository.UserRepository = &UserRepo{}
 

@@ -6,7 +6,7 @@ jobs: # basic units of work in a run
       - image: circleci/postgres:9.6-alpine
         environment: # environment variables for primary container
           POSTGRES_USER: steven
-          POSTGRES_DB: food-app-test
+          POSTGRES_DB: learnDDD-test
 
     environment: # environment variables for the build itself
       GO111MODULE: "on" #we don't rely on GOPATH
@@ -27,7 +27,7 @@ jobs: # basic units of work in a run
       - run:
           name: Run unit tests
           environment: # environment variables for the database url and path to migration files
-            FORUM_DB_URL: "postgres://steven@localhost:5432/food-app-test?sslmode=disable"
+            FORUM_DB_URL: "postgres://steven@localhost:5432/learnDDD-test?sslmode=disable"
           command: go test -v ./...  # our test is inside the "tests" folder, so target only that
 
 workflows:

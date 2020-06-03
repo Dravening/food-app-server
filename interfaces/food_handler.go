@@ -2,11 +2,11 @@ package interfaces
 
 import (
 	"fmt"
-	"food-app/application"
-	"food-app/domain/entity"
-	"food-app/infrastructure/auth"
-	"food-app/interfaces/fileupload"
 	"github.com/gin-gonic/gin"
+	"learnDDD/application"
+	"learnDDD/domain/entity"
+	"learnDDD/infrastructure/auth"
+	"learnDDD/interfaces/fileupload"
 	"net/http"
 	"os"
 	"strconv"

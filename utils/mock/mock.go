@@ -1,8 +1,8 @@
 package mock
 
 import (
-	"food-app/domain/entity"
-	"food-app/infrastructure/auth"
+	"learnDDD/domain/entity"
+	"learnDDD/infrastructure/auth"
 	"mime/multipart"
 	"net/http"
 )
@@ -101,4 +101,3 @@ type UploadFileInterface struct {
 func (up *UploadFileInterface) UploadFile(file *multipart.FileHeader) (string, error) {
 	return up.UploadFileFn(file)
 }
-

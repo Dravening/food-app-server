@@ -1,6 +1,6 @@
 package interfaces
 
-import "food-app/utils/mock"
+import "learnDDD/utils/mock"
 
 var (
 	userApp    mock.UserAppInterface

@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"food-app/domain/entity"
+	"learnDDD/domain/entity"
 )
 
 type UserRepository interface {

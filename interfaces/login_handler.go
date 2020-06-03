@@ -2,11 +2,11 @@ package interfaces
 
 import (
 	"fmt"
-	"food-app/application"
-	"food-app/domain/entity"
-	"food-app/infrastructure/auth"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+	"learnDDD/application"
+	"learnDDD/domain/entity"
+	"learnDDD/infrastructure/auth"
 	"net/http"
 	"os"
 	"strconv"

@@ -1,8 +1,8 @@
 package application
 
 import (
-	"food-app/domain/entity"
-	"food-app/domain/repository"
+	"learnDDD/domain/entity"
+	"learnDDD/domain/repository"
 )
 
 type userApp struct {

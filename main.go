@@ -1,13 +1,13 @@
 package main
 
 import (
-	"food-app/infrastructure/auth"
-	"food-app/infrastructure/persistence"
-	"food-app/interfaces"
-	"food-app/interfaces/fileupload"
-	"food-app/interfaces/middleware"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"learnDDD/infrastructure/auth"
+	"learnDDD/infrastructure/persistence"
+	"learnDDD/interfaces"
+	"learnDDD/interfaces/fileupload"
+	"learnDDD/interfaces/middleware"
 	"log"
 	"os"
 )
@@ -32,7 +32,6 @@ func main() {
 	redis_host := os.Getenv("REDIS_HOST")
 	redis_port := os.Getenv("REDIS_PORT")
 	redis_password := os.Getenv("REDIS_PASSWORD")
-
 
 	services, err := persistence.NewRepositories(dbdriver, user, password, port, host, dbname)
 	if err != nil {
@@ -73,11 +72,10 @@ func main() {
 	r.POST("/logout", authenticate.Logout)
 	r.POST("/refresh", authenticate.Refresh)
 
-
 	//Starting the application
 	app_port := os.Getenv("PORT") //using heroku host
 	if app_port == "" {
 		app_port = "8888" //localhost
 	}
-	log.Fatal(r.Run(":"+app_port))
+	log.Fatal(r.Run(":" + app_port))
 }

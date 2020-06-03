@@ -1,10 +1,10 @@
 package interfaces
 
 import (
-	"food-app/application"
-	"food-app/domain/entity"
-	"food-app/infrastructure/auth"
 	"github.com/gin-gonic/gin"
+	"learnDDD/application"
+	"learnDDD/domain/entity"
+	"learnDDD/infrastructure/auth"
 	"net/http"
 	"strconv"
 )
