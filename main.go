@@ -20,7 +20,7 @@ func init() {
 }
 
 func main() {
-
+	gin.SetMode(gin.ReleaseMode)
 	dbdriver := os.Getenv("DB_DRIVER")
 	host := os.Getenv("DB_HOST")
 	password := os.Getenv("DB_PASSWORD")
@@ -60,7 +60,7 @@ func main() {
 	r.GET("/users", users.GetUsers)
 	r.GET("/users/:user_id", users.GetUser)
 
-	//post routes
+	//food routes
 	r.POST("/food", middleware.AuthMiddleware(), middleware.MaxSizeAllowed(8192000), foods.SaveFood)
 	r.PUT("/food/:food_id", middleware.AuthMiddleware(), middleware.MaxSizeAllowed(8192000), foods.UpdateFood)
 	r.GET("/food/:food_id", foods.GetFoodAndCreator)
@@ -77,5 +77,6 @@ func main() {
 	if app_port == "" {
 		app_port = "8888" //localhost
 	}
+	log.Println("program start")
 	log.Fatal(r.Run(":" + app_port))
 }

@@ -2,10 +2,13 @@ package persistence
 
 import (
 	"fmt"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
+
 	"learnDDD/domain/entity"
 	"learnDDD/domain/repository"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
+	//_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
 type Repositories struct {
@@ -15,8 +18,9 @@ type Repositories struct {
 }
 
 func NewRepositories(Dbdriver, DbUser, DbPassword, DbPort, DbHost, DbName string) (*Repositories, error) {
-	DBURL := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", DbHost, DbPort, DbUser, DbName, DbPassword)
-	db, err := gorm.Open(Dbdriver, DBURL)
+	//postgreDBURL := fmt.Sprintf("host=%s port=%s user=%s dbname=%s sslmode=disable password=%s", DbHost, DbPort, DbUser, DbName, DbPassword)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", DbUser, DbPassword, DbHost, DbPort, DbName)
+	db, err := gorm.Open(Dbdriver, dsn)
 	if err != nil {
 		return nil, err
 	}
